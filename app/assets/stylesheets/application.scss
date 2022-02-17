@@ -11,3 +11,15 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+@import 'bookmarks';
+@import 'lists';
+
+.container {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding: 30px;
+  width: 800px;
+}
