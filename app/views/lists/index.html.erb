@@ -1,14 +1,17 @@
-<%# <%= render 'banner_index' %>
 
-<div class="redirect-buttons">
-  <%= link_to "Add new list", new_list_path, class: 'btn btn-outline-success p-2' %>
-</div>
+<%= render 'banner_index'%>
 
-
-<div class="row">
-  <% @lists.each do |list| %>
-    <div class="card-category col-lg-12 rounded" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://picsum.photos/600/900); object-fit: cover">
-    <%= link_to "#{list.name}", list_path(list), class: 'btn btn-dark' %>
-    </div>
-    <% end %>
-</div>
+<% @lists.each do |list| %>
+  <div class="row">
+      <div class="col-md-6 card-category rounded" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://picsum.photos/600/900); object-fit: cover">
+          <div class="card-info d-flex justify-content-space-between">
+            <%= link_to "#{list.name}", list_path(list), class: 'btn btn-dark' %>
+            <%= link_to "Delete list",
+                list_path(list),
+                method: :delete,
+                data: { confirm: "Are you sure?" },
+                class: 'btn btn-outline-danger p-1 mt-2' %>
+          </div>
+      </div>
+  </div>
+<% end %>
