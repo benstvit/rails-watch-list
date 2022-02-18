@@ -14,5 +14,7 @@
 
 </ul>
 
-<%= link_to "Back to list index", lists_path, class: 'btn btn-dark p-2 m-3' %>
-<%= link_to "Bookmark a new movie", new_list_bookmark_path(@list), class: 'btn btn-outline-success p-2 m-3' %>
+<div class="redirect-buttons">
+  <%= link_to "Back to list index", lists_path, class: 'btn btn-dark p-2 m-3' %>
+  <%= link_to "Bookmark a new movie", new_list_bookmark_path(@list), class: 'btn btn-outline-success p-2 m-3' %>
+</div>

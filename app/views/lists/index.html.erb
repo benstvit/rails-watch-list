@@ -1,11 +1,12 @@
-<h1>Your ***** amazing movie lists ! 🎞</h1>
-
-<%= link_to "Add new list", new_list_path, class: 'btn btn-dark p-3' %>
+<h1 class='m-3'>Your ***** amazing movie lists ! 🎞</h1>
+<div class="redirect-buttons">
+  <%= link_to "Add new list", new_list_path, class: 'btn btn-outline-success p-2' %>
+</div>
 
 <div class="row">
   <% @lists.each do |list| %>
-    <div class="card-category col-lg-3" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://picsum.photos/seed/picsum/200/300)">
-    <%= link_to "#{list.name}", list_path(list) %>
+    <div class="card-category col-lg-12 rounded" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://picsum.photos/1000/1200); object-fix: center">
+    <%= link_to "#{list.name}", list_path(list), class: 'btn btn-outline-dark' %>
     </div>
     <% end %>
 </div>
