@@ -2,6 +2,7 @@
 
 <%= simple_form_for(@list) do |f| %>
   <%= f.input :name, label: 'Enter your list name here'%>
+  <%= f.input :photo, as: :file %>
   <%= f.submit "Add list", class: 'btn btn-success' %>
 <% end%>
 

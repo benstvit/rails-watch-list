@@ -1,7 +1,9 @@
-<h1 class='m-3'>Your ***** amazing movie lists ! 🎞</h1>
+<%# <%= render 'banner_index' %>
+
 <div class="redirect-buttons">
   <%= link_to "Add new list", new_list_path, class: 'btn btn-outline-success p-2' %>
 </div>
+
 
 <div class="row">
   <% @lists.each do |list| %>
