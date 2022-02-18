@@ -1,9 +1,9 @@
 
-<%= render 'banner_index' %>
+<%= render 'banner_index', list: @list %>
 
 <% @lists.each do |list| %>
 
-      <div class="col-6 card-category rounded d-flex flex-column flex-wrap justify-content-center align-items-center " style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://picsum.photos/600/900); object-fit: cover">
+      <div class="col-6 card-category rounded d-flex flex-column flex-wrap justify-content-center align-items-center " style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= cl_image_path list.photo.key, height: 300, crop: :fill %>');object-fit:cover">
           <div class="card-info">
           <div>
             <span><%= link_to "#{list.name}", list_path(list), class: 'btn btn-dark' %></span>
@@ -12,7 +12,7 @@
                   list_path(list),
                   method: :delete,
                   data: { confirm: "Are you sure?" },
-                  class: 'btn btn-outline-danger p-1 mt-2' %>
+                  class: 'btn btn-outline-danger ' %>
             </span>
           </div>
           </div>
