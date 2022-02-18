@@ -2,8 +2,8 @@
 
 <div class="row">
     <% @list.bookmarks.each do |bookmark| %>
-      <div class="col-lg-12 col-md-6 card-product m-3">
-        <img class="card-img img-thumbnail" src="<%=bookmark.movie.poster_url%>" />
+      <div class="col-12 card-product m-3">
+        <img class="img-thumbnail" src="<%=bookmark.movie.poster_url%>" />
         <div class="card-product-infos m-3 p-3">
           <div class="movie-description d-flex justify-content-center flex-column align-items-start">
             <h2><%= bookmark.movie.title %></h2>
