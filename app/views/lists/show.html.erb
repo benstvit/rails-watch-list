@@ -1,13 +1,21 @@
-<h1><%= @list.name %></h1>
+<%= render 'banner' %>
 
 <div class="row">
-    <% @list.movies.each do |movie| %>
+    <% @list.bookmarks.each do |bookmark| %>
       <div class="col-lg-12 col-md-6 card-product m-3">
-      <img class="card-img" src="<%=movie.poster_url%>" />
-      <div class="card-product-infos m-3">
-        <h2><%= movie.title %></h2>
-        <p><%= movie.overview %></p>
-      </div>
+        <img class="card-img img-thumbnail" src="<%=bookmark.movie.poster_url%>" />
+        <div class="card-product-infos m-3 p-3">
+          <div class="movie-description d-flex justify-content-center flex-column align-items-start">
+            <h2><%= bookmark.movie.title %></h2>
+            <p class='text-left'><%= bookmark.movie.overview %></p>
+            <p class='text-left'><%= bookmark.comment %></p>
+            <%= link_to "Delete movie",
+            bookmark_path(bookmark),
+            method: :delete,
+            data: { confirm: "Are you sure?" },
+            class: 'btn btn-outline-danger p-1 mt-2' %>
+          </div>
+        </div>
       </div>
     <% end %>
 </div>
@@ -16,5 +24,5 @@
 
 <div class="redirect-buttons">
   <%= link_to "Back to list index", lists_path, class: 'btn btn-dark p-2 m-3' %>
-  <%= link_to "Bookmark a new movie", new_list_bookmark_path(@list), class: 'btn btn-outline-success p-2 m-3' %>
+  <%= link_to "Add a bookmark", new_list_bookmark_path(@list), class: 'btn btn-outline-success p-2 m-3' %>
 </div>

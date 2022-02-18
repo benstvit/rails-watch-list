@@ -5,8 +5,8 @@
 
 <div class="row">
   <% @lists.each do |list| %>
-    <div class="card-category col-lg-12 rounded" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://picsum.photos/1000/1200); object-fix: center">
-    <%= link_to "#{list.name}", list_path(list), class: 'btn btn-outline-dark' %>
+    <div class="card-category col-lg-12 rounded" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://picsum.photos/600/900); object-fit: cover">
+    <%= link_to "#{list.name}", list_path(list), class: 'btn btn-dark' %>
     </div>
     <% end %>
 </div>
