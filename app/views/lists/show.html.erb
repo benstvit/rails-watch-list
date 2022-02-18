@@ -1,26 +1,23 @@
-<%= render 'banner_show'%>
+<%= render 'banner_show', list: @list%>
 
-<div class="row">
-    <% @list.bookmarks.each do |bookmark| %>
-      <div class="col-12 card-product m-3">
-        <img class="img-thumbnail" src="<%=bookmark.movie.poster_url%>" />
-        <div class="card-product-infos m-3 p-3">
-          <div class="movie-description d-flex justify-content-center flex-column align-items-start">
-            <h2><%= bookmark.movie.title %></h2>
-            <p class='text-left'><%= bookmark.movie.overview %></p>
-            <p class='text-left'><%= bookmark.comment %></p>
-            <%= link_to "Delete movie",
-            bookmark_path(bookmark),
-            method: :delete,
-            data: { confirm: "Are you sure?" },
-            class: 'btn btn-outline-danger p-1 mt-2' %>
-          </div>
-        </div>
+<% @list.bookmarks.each do |bookmark| %>
+  <div class="col-6 card-product m-3">
+    <img class="img-thumbnail" src="<%= bookmark.movie.poster_url%>" />
+    <div class="card-product-infos m-3 p-3">
+      <div class="movie-description d-flex justify-content-center flex-column align-items-start">
+        <h2><%= bookmark.movie.title %></h2>
+        <p class='text-left'><%= bookmark.movie.overview %></p>
+        <p class='text-left'><%= bookmark.comment %></p>
+        <%= link_to "Delete movie",
+        bookmark_path(bookmark),
+        method: :delete,
+        data: { confirm: "Are you sure?" },
+        class: 'btn btn-outline-danger p-1 mt-2' %>
       </div>
-    <% end %>
-</div>
+    </div>
+  </div>
+<% end %>
 
-</ul>
 
 <div class="redirect-buttons">
   <%= link_to "Back to list index", lists_path, class: 'btn btn-dark p-2 m-3' %>
