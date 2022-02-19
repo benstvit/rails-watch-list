@@ -1,21 +1,19 @@
 
 <%= render 'banner_index', list: @list %>
 
-<% @lists.each do |list| %>
-
-      <div class="col-6 card-category rounded d-flex flex-column flex-wrap justify-content-center align-items-center " style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= cl_image_path list.photo.key, height: 300, crop: :fill %>');object-fit:cover">
-          <div class="card-info">
-          <div>
-            <span><%= link_to "#{list.name}", list_path(list), class: 'btn btn-dark' %></span>
-            <span>
-              <%= link_to "Delete list",
-                  list_path(list),
-                  method: :delete,
-                  data: { confirm: "Are you sure?" },
-                  class: 'btn btn-outline-danger ' %>
-            </span>
+<div data-controller="add-sweetalert">
+  <% @lists.each do |list| %>
+    <div class="col-6 card-category rounded d-flex flex-column flex-wrap justify-content-center align-items-center " data-add-sweetalert-target="list" data-id= "<%= list.id %>" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= cl_image_path list.photo.key, height: 300, crop: :fill %>');  background-size: cover;">
+        <div class="card-info">
+        <div>
+          <span><%= link_to "#{list.name}", list_path(list), class: 'btn btn-dark' %></span>
+          <div class="close btn"  data-action="click->add-sweetalert#alert" data-id= "<%= list.id %>" >
+            <span data-add-sweetalert-target="cross"></span>
           </div>
-          </div>
-      </div>
+          </span>
+        </div>
+        </div>
+    </div>
+</div>
 
 <% end %>

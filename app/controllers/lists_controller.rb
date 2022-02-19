@@ -2,6 +2,7 @@ require 'open-uri'
 
 class ListsController < ApplicationController
   before_action :find_list, only: %i[show destroy]
+  protect_from_forgery except: :destroy
 
   def index
     @lists = List.all
@@ -31,10 +32,18 @@ class ListsController < ApplicationController
   end
 
   def destroy
-    @list.destroy
-    redirect_to lists_path
+    respond_to do |format|
+      format.html do
+        @list.destroy
+        redirect_to lists_path
+        end
+
+      format.json do
+        @list.destroy
+        render json: { message: "Hello World"}
+        end
+      end
   end
-  # Dans params de list create if photo = nil then attach url
 
   private
 

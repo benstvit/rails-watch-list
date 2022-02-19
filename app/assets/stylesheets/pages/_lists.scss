@@ -17,7 +17,12 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   margin: 20px;
   object-fit: cover;
+  position: relative;
 }
+
+// .card-info {
+//   position: relative;
+// }
 
 .card-product {
   overflow: hidden;
@@ -58,8 +63,25 @@
 .banner {
   background-size: cover;
   background-position: center;
-  padding: 150px 0;
+  padding: 120px 0;
   width: 100%;
+  box-shadow:5px 5px 15px 5px rgba(0,0,0,0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.banner-show {
+  background-size: cover;
+  background-position: center;
+  padding: 120px 0;
+  width: 70%;
+  box-shadow:5px 5px 15px 5px rgba(0,0,0,0.55);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
 }
 
 .banner h1 {
