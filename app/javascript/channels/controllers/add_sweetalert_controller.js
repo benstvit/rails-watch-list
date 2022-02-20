@@ -1,18 +1,16 @@
 import { Controller } from "@hotwired/stimulus"
 import swal from 'sweetalert';
+import Typed from 'typed.js';
 
 export default class extends Controller {
-  static targets = ["cross", "list"]
+  static targets = ["cross", "list", "banner"]
+
   connect() {
     console.log("The 'sweetalert' controller is now loaded!")
   }
 
   alert(event) {
     const listId = event.currentTarget.dataset.id
-    const listTarget = this.listTargets
-    console.log(listTarget)
-    console.log(this.crossTarget)
-
     const findList = this.listTargets.find(list => list.dataset.id === listId)
     swal({
       title: "Are you sure?",
@@ -31,8 +29,8 @@ export default class extends Controller {
                 }
             )
                 .then((result) => {
-                  findList.style.transition = "all 3s"
-                  setTimeout(() => findList.style.transform = "translateX(-1000px)", 1000)
+                  // findList.style.transition = "all 3s"
+                  setTimeout(() => findList.style.transform = "translateX(-1200px)", 1000)
                   setTimeout(() => findList.remove(), 10000)
                 })
 
@@ -48,5 +46,14 @@ export default class extends Controller {
         setTimeout(() => swal.close(), 1000)
       }
     });
+  }
+
+  typed() {
+    const options = {
+      strings: ['Your Watchlist', 'Horror, thriller, you name it!'],
+      typeSpeed: 40
+    };
+
+    const typed = new Typed('this.bannerTarget', options);
   }
 }

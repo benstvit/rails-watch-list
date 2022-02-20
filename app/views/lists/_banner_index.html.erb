@@ -1,8 +1,10 @@
 <div class="banner " style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('https://picsum.photos/seed/picsum/1000/1200'); background-size: cover;">
-  <div class="container">
-    <h1 class='m-3'>My Watchlist</h1>
- <div class="redirect-buttons d-flex justify-content-center">
-  <%= link_to "Add new list", new_list_path, class: 'btn btn-outline-success p-2' %>
-  </div>
+  <div data-controller='add-sweetalert'>
+      <div class="container" >
+        <h1 class='m-3'data-add-sweetalert-target='banner' data-action="add-sweetalert#typed"></h1>
+        <div class="redirect-buttons d-flex justify-content-center">
+          <%= link_to "Add new list", new_list_path, class: 'btn btn-outline-success p-2' %>
+        </div>
+      </div>
   </div>
 </div>

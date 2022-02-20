@@ -40,7 +40,6 @@ class ListsController < ApplicationController
 
       format.json do
         @list.destroy
-        render json: { message: "Hello World"}
         end
       end
   end
