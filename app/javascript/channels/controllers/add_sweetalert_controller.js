@@ -29,7 +29,7 @@ export default class extends Controller {
                 }
             )
                 .then((result) => {
-                  // findList.style.transition = "all 3s"
+                  findList.style.transition = "all 2s"
                   setTimeout(() => findList.style.transform = "translateX(-1200px)", 1000)
                   setTimeout(() => findList.remove(), 10000)
                 })
