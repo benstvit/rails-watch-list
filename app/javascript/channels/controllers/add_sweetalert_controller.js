@@ -7,6 +7,11 @@ export default class extends Controller {
 
   connect() {
     console.log("The 'sweetalert' controller is now loaded!")
+    const options = {
+      strings: ['Your Watchlist', 'Horror, thriller, you name it!'],
+      typeSpeed: 40
+    };
+    const typed = new Typed(".typed-target", options);
   }
 
   alert(event) {
@@ -31,7 +36,7 @@ export default class extends Controller {
                 .then((result) => {
                   findList.style.transition = "all 2s"
                   setTimeout(() => findList.style.transform = "translateX(-1200px)", 1000)
-                  setTimeout(() => findList.remove(), 10000)
+                  setTimeout(() => findList.remove(), 1000)
                 })
 
                 .catch((err) => {
@@ -48,12 +53,4 @@ export default class extends Controller {
     });
   }
 
-  typed() {
-    const options = {
-      strings: ['Your Watchlist', 'Horror, thriller, you name it!'],
-      typeSpeed: 40
-    };
-
-    const typed = new Typed('this.bannerTarget', options);
-  }
 }
